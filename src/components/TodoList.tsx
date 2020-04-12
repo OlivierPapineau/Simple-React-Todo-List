@@ -3,6 +3,7 @@ import { TodoContext } from '../contexts';
 import { ITodoItem } from '../contexts/typings';
 import { StatusButton } from './_parts';
 import { FaPlus } from 'react-icons/fa';
+import { isUnique } from '../utils';
 
 const TodoList = () => {
 	const [ items, setItems ] = useContext(TodoContext);
@@ -10,6 +11,9 @@ const TodoList = () => {
 
 	const handleAddItem = () => {
 		const prevState = [ ...items ];
+
+		if (!newItem.name) return;
+		if (!isUnique(prevState, newItem, 'name')) return;
 
 		setItems([ ...prevState, newItem ]);
 		setNewItem({} as ITodoItem);
@@ -24,7 +28,6 @@ const TodoList = () => {
 	};
 
 	const handleItemOperation = (item: ITodoItem, mode: string = 'done') => {
-		console.log('click');
 		const newState = [ ...items ];
 		newState.forEach((todo, index) => {
 			if (todo.name === item.name) {
@@ -44,7 +47,6 @@ const TodoList = () => {
 					<StatusButton onClick={() => handleItemOperation(item)} done={item.done} action="isDone" />
 					<StatusButton onClick={() => handleItemOperation(item, 'delete')} action="delete" />
 				</div>
-				{/* <br />Complete: {`${item.done}`} */}
 			</li>
 		);
 	});

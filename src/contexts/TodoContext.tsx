@@ -3,10 +3,9 @@ import { ITodoItem, ITodoProviderProps } from './typings';
 
 type TChildrenType = JSX.Element[] | JSX.Element;
 
-const TodoContext = createContext();
+const TodoContext = createContext({} as any);
 
 const TodoProvider = (props: ITodoProviderProps) => {
-	console.log(localStorage.getItem('todoList'));
 	const [ items, setItems ] = useState<ITodoItem[]>(
 		localStorage.getItem('todoList') !== null
 			? JSON.parse(localStorage.getItem('todoList') || '') as ITodoItem[]

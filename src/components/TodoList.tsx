@@ -1,6 +1,7 @@
 import React, { useState, useContext, Fragment, ChangeEvent } from 'react';
 import { TodoContext } from '../contexts';
 import { ITodoItem } from '../contexts/typings';
+import { StatusButton } from './_parts';
 
 const TodoList = () => {
 	const [ items, setItems ] = useContext(TodoContext);
@@ -22,6 +23,7 @@ const TodoList = () => {
 	};
 
 	const handleItemOperation = (item: ITodoItem, mode: string = 'done') => {
+		console.log('click');
 		const newState = [ ...items ];
 		newState.forEach((todo, index) => {
 			if (todo.name === item.name) {
@@ -35,11 +37,13 @@ const TodoList = () => {
 
 	const listElms = items.map((item: ITodoItem, index: number) => {
 		return (
-			<li key={index}>
-				{item.name}
-				&nbsp;<button onClick={() => handleItemOperation(item)}>{item.done ? 'Not Done' : 'Done'}</button>
-				&nbsp;<button onClick={() => handleItemOperation(item, 'delete')}>Delete</button>
-				<br />Complete: {`${item.done}`}
+			<li key={index} className="todo-item">
+				<div className="todo-item__label">{item.name}</div>
+				<div className="todo-item__controls">
+					<StatusButton onClick={() => handleItemOperation(item)} done={item.done} action="isDone" />
+					<StatusButton onClick={() => handleItemOperation(item, 'delete')} action="delete" />
+				</div>
+				{/* <br />Complete: {`${item.done}`} */}
 			</li>
 		);
 	});

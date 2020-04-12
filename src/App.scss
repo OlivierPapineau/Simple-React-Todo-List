@@ -1,1 +1,7 @@
-@import "styles/test";
+@import "styles/fonts";
+@import "styles/variables";
+@import "styles/layout";
+
+/*COMPONENTS*/
+@import "styles/components/status-button";
+@import "styles/components/todo-item";

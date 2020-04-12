@@ -1,0 +1,46 @@
+button {
+	background-color: #ccc;
+	padding: 10px;
+	border-radius: 50px;
+	border: none;
+	font-weight: bold;
+	margin-left: 10px;
+	box-shadow: 0px 5px 14px -2px #21415e;
+	transition: ease-in-out .2s;
+
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0px 5px 14px -8px #21415e;
+	}
+
+	&:active {
+		box-shadow: inset 0px 5px 14px -2px #21415e;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	svg {
+		margin-right: 5px;
+		transform: translateY(15%);
+	}
+
+	&.button-active {
+		svg {
+			fill: green;
+		}
+	}
+
+	&.button-done {
+		svg {
+			fill: red;
+		}
+	}
+
+	&.button-delete {
+		svg {
+			fill: red;
+		}
+	}
+}

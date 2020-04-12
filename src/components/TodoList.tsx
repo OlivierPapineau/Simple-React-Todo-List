@@ -1,9 +1,9 @@
 import React, { useState, useContext, Fragment, ChangeEvent } from 'react';
-import { TodoContext } from '../contexts';
-import { ITodoItem } from '../contexts/typings';
-import { StatusButton } from './_parts';
 import { FaPlus } from 'react-icons/fa';
 import { isUnique } from '../utils';
+import { ITodoItem } from '../contexts/typings';
+import { StatusButton } from './_parts';
+import { TodoContext } from '../contexts';
 
 const TodoList = () => {
 	const [ items, setItems ] = useContext(TodoContext);

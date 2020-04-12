@@ -19,8 +19,11 @@ const CompletedTodoList = () => {
 
 	const itemElms = items.filter((item: ITodoItem) => item.done).map((filteredItem: ITodoItem, index: number) => {
 		return (
-			<li key={index}>
-				{filteredItem.name} <button onClick={() => handleDelete(filteredItem)}>Delete</button>
+			<li key={index} className="todo-item done">
+				<div className="todo-item__label">{filteredItem.name}</div>
+				<div className="todo-item__controls">
+					<button onClick={() => handleDelete(filteredItem)}>Delete</button>
+				</div>
 			</li>
 		);
 	});

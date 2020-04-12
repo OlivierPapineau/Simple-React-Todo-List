@@ -2,6 +2,10 @@
 	font-family: $secondary-font;
 }
 
+html {
+	background-color: #fafafa;
+}
+
 h1,
 h2,
 h3 {
@@ -14,4 +18,9 @@ ul {
 
 li {
 	list-style: none;
+}
+
+main {
+	max-width: 90%;
+	margin: 0 auto;
 }

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AllTodos, CompletedTodos } from '../../pages';
 
 const Nav = () => {
@@ -14,15 +14,6 @@ const Nav = () => {
 						<Link to="/completed">Completed todos</Link>
 					</li>
 				</ul>
-
-				<Switch>
-					<Route exact path="/">
-						<AllTodos />
-					</Route>
-					<Route path="/completed">
-						<CompletedTodos />
-					</Route>
-				</Switch>
 			</nav>
 		</Fragment>
 	);

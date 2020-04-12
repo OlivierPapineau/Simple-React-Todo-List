@@ -2,6 +2,7 @@ import React, { useState, useContext, Fragment, ChangeEvent } from 'react';
 import { TodoContext } from '../contexts';
 import { ITodoItem } from '../contexts/typings';
 import { StatusButton } from './_parts';
+import { FaPlus } from 'react-icons/fa';
 
 const TodoList = () => {
 	const [ items, setItems ] = useContext(TodoContext);
@@ -37,7 +38,7 @@ const TodoList = () => {
 
 	const listElms = items.map((item: ITodoItem, index: number) => {
 		return (
-			<li key={index} className="todo-item">
+			<li key={index} className={`todo-item ${item.done ? 'done' : ''}`}>
 				<div className="todo-item__label">{item.name}</div>
 				<div className="todo-item__controls">
 					<StatusButton onClick={() => handleItemOperation(item)} done={item.done} action="isDone" />
@@ -52,9 +53,12 @@ const TodoList = () => {
 		<Fragment>
 			<ul>
 				{listElms}
-				<li>
+				<li className="add-element">
 					<input onChange={handleInputChange} type="text" value={newItem.name || ''} />
-					<button onClick={handleAddItem}>Add item</button>
+					<button onClick={handleAddItem}>
+						<FaPlus />
+						Add item
+					</button>
 				</li>
 			</ul>
 		</Fragment>

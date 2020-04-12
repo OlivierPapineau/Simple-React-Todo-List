@@ -1,10 +1,10 @@
-import React, { Fragment, MouseEvent, useContext } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { TodoContext } from '../../contexts';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ITodoItem } from '../../contexts/typings';
 
 const Nav = () => {
-	const [ items, setItems ] = useContext(TodoContext);
+	const [ items ] = useContext(TodoContext);
 
 	const completedTodos: ITodoItem[] = items.filter((item: ITodoItem) => item.done);
 

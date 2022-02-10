@@ -43,7 +43,7 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react-docgen": "^5.3.0"
   }
 }
